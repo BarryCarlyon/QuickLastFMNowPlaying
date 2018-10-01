@@ -1,4 +1,6 @@
-# LastFMNowPlaying - a dumb/quick module to get current playing track
+# LastFMNowPlaying
+
+A dumb/quick module to get current playing track
 
 ## Notes:
 
@@ -27,9 +29,17 @@ c.on('error', function(e) {
 })
 ```
 
+## Options
+
+- `api_key` - string, required, you need a API Key in order to poll Last.fm
+- `user` - string, required, the username to fetch songs for,
+- `poll_time` - int, optional, default `10000` - time between polls in MS
+- `nowplaying_only` - boolean, optional, default `false`, if `true` only return a `song` event if the current song is actually playing
+
 ## Events
 
 - `error` - percolates an error if request gets one, or an error with the response, passed the error
 - `always` - emits the whole response of `user.getrecenttracks`
+- `song` - the song changed, returns the first track object
 - `nochange` - the poll completed, but the song didn't change, nothing is passed
 - `warning` - non 200 call from the API, either Last.fm tripped, or you are polling to quick and hit a rate limit. passes an object containting the HTTP Code as `code` and the `body` response

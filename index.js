@@ -9,11 +9,12 @@ exports.LastFMNowPlaying = LastFMNowPlaying;
 function LastFMNowPlaying(config) {
     EventEmitter.call(this);
 
-    var { api_key, user, poll_time } = config;
+    var { api_key, user, poll_time, nowplaying_only } = config;
 
     LastFMNowPlaying.api_key = api_key;
     LastFMNowPlaying.user = user;
     LastFMNowPlaying.poll_time = poll_time ? poll_time : 10000;
+    LastFMNowPlaying.nowplaying_only = nowplaying_only ? nowplaying_only : false;
 
     var self = this;
 
@@ -35,6 +36,17 @@ function LastFMNowPlaying(config) {
                 try {
                     var { recenttracks } = b;
                     var track = recenttracks.track[0];
+
+                    var is_playing = false;
+                    if (track['@attr'] && track['@attr'].nowplaying) {
+                        is_playing = true;
+                    }
+
+                    if (!is_playing && LastFMNowPlaying.nowplaying_only) {
+                        // not playing
+                        self.emit('nochange');
+                        return;
+                    }
                     var song = track.name;
                     if (LastFMNowPlaying.lasttrack != song) {
                         LastFMNowPlaying.lasttrack = song;
