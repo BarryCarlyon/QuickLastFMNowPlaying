@@ -1,0 +1,18 @@
+{
+  "name": "lastfmnowplaying",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ['lastfm'],
+  "author": "Barry Carlyon <barry@barrycarlyon.co.uk>",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">= 4"
+  }
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
