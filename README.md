@@ -9,7 +9,9 @@ Uses [request](https://github.com/request/request/) to make the request.
 ## Example usage:
 
 ```js
-var c = new LastFMNowPlaying.LastFMNowPlaying({
+var lfmnp = require('LastFMNowPlaying');
+
+var c = new lfmnp.LastFMNowPlaying({
     api_key: some_apikey,
     user: some_lastFM_username
 });
