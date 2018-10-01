@@ -4,7 +4,7 @@ A dumb/quick module to get current playing track
 
 ## Notes:
 
-Dume loop fetch of [user.getRecentTracks](https://www.last.fm/api/show/user.getRecentTracks) you will need a API key from [Last.fm](https://www.last.fm/api/account/create)
+Dumb loop fetch of [user.getRecentTracks](https://www.last.fm/api/show/user.getRecentTracks) you will need a API key from [Last.fm](https://www.last.fm/api/account/create)
 
 Uses [request](https://github.com/request/request/) to make the request.
 
