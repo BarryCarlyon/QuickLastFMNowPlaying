@@ -18,7 +18,6 @@ function LastFMNowPlaying(config) {
     var self = this;
 
     LastFMNowPlaying.tock = function() {
-        console.log('tocking');
         request({
             url: 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks'
                 + '&user=' + LastFMNowPlaying.user
@@ -29,7 +28,6 @@ function LastFMNowPlaying(config) {
             json: true,
             timeout: LastFMNowPlaying.poll_time
         }, (e,r,b) => {
-            console.log(r.statusCode);
             if (e) {
                 self.emit('error', e);
             } else if (r.statusCode == 200) {
@@ -44,7 +42,6 @@ function LastFMNowPlaying(config) {
                     } else {
                         // no change
                         self.emit('nochange');
-                        console.log('no change');
                     }
                 } catch (e) {
                     self.emit('error', e);
