@@ -31,10 +31,10 @@ function LastFMNowPlaying(config) {
         })
         .then(resp => {
             if (resp.statusCode == 200) {
-                self.emit('always', b);
+                self.emit('always', resp.body);
 
                 try {
-                    var { recenttracks } = b;
+                    var { recenttracks } = resp.body;
                     var track = recenttracks.track[0];
 
                     var is_playing = false;
