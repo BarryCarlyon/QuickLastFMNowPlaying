@@ -9,12 +9,13 @@ exports.LastFMNowPlaying = LastFMNowPlaying;
 function LastFMNowPlaying(config) {
     EventEmitter.call(this);
 
-    var { api_key, user, poll_time, nowplaying_only } = config;
+    let { api_key, user, poll_time, nowplaying_only, user_agent } = config;
 
     LastFMNowPlaying.api_key = api_key;
     LastFMNowPlaying.user = user;
     LastFMNowPlaying.poll_time = poll_time ? poll_time : 10000;
     LastFMNowPlaying.nowplaying_only = nowplaying_only ? nowplaying_only : false;
+    LastFMNowPlaying.user_agent = user_agent ? user_agent : 'BarryCarlyon/1.0.0 https://github.com/BarryCarlyon/LastFMNowPlaying';
 
     var self = this;
 
@@ -26,6 +27,9 @@ function LastFMNowPlaying(config) {
                 + '&format=json'
                 + '&limit=1',
             method: 'GET',
+            headers: {
+                'User-Agent': LastFMNowPlaying.user_agent
+            },
             responseType: 'json',
             timeout: LastFMNowPlaying.poll_time
         })

@@ -35,6 +35,7 @@ c.on('error', function(e) {
 - `user` - string, required, the username to fetch songs for,
 - `poll_time` - int, optional, default `10000` - time between polls in MS
 - `nowplaying_only` - boolean, optional, default `false`, if `true` only return a `song` event if the current song is actually playing
+- `user_agent` - override the default useragent, helps ID your calls to LastFM in the event of a problem
 
 ## Events
 
