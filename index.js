@@ -66,7 +66,7 @@ function LastFMNowPlaying(config) {
             }
         })
         .catch(err => {
-            self.emit('error', e);
+            self.emit('error', err);
         });
     }
 
