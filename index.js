@@ -55,13 +55,13 @@ function LastFMNowPlaying(config) {
                         // no change
                         self.emit('nochange');
                     }
-                } catch (e) {
-                    self.emit('error', e);
+                } catch (err) {
+                    self.emit('error', err);
                 }
             } else {
                 self.emit('warning', {
-                    code: r.statusCode,
-                    body: b
+                    code: resp.statusCode,
+                    body: resp.body
                 });
             }
         })
@@ -86,3 +86,4 @@ LastFMNowPlaying.start = function() {
 LastFMNowPlaying.stop = function() {
     clearInterval(LastFMNowPlaying.tick);
 };
+
