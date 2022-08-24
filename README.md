@@ -6,7 +6,7 @@ A dumb/quick module to get current playing track
 
 Dumb loop fetch of [user.getRecentTracks](https://www.last.fm/api/show/user.getRecentTracks) you will need a API key from [Last.fm](https://www.last.fm/api/account/create)
 
-Uses [got](https://github.com/sindresorhus/got/) to make the request.
+Uses [node-fetch](https://github.com/node-fetch/node-fetch) to make the request.
 
 ## Example usage:
 
@@ -44,3 +44,9 @@ c.on('error', function(e) {
 - `song` - the song changed, returns the first track object
 - `nochange` - the poll completed, but the song didn't change, nothing is passed
 - `warning` - non 200 call from the API, either Last.fm tripped, or you are polling to quick and hit a rate limit. passes an object containting the HTTP Code as `code` and the `body` response
+
+## Change Log
+
+v1.1.0
+
+Swapped from Got to Node Fetch

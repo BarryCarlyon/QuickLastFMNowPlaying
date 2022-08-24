@@ -1,20 +1,29 @@
 {
   "name": "lastfmnowplaying",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "lastfm"
+    "lastfm",
+    "now playing"
   ],
   "author": "Barry Carlyon <barry@barrycarlyon.co.uk>",
   "license": "WTFPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BarryCarlyon/LastFMNowPlaying.git"
+  },
+  "homepage": "https://github.com/BarryCarlyon/LastFMNowPlaying",
+  "bugs": {
+    "url": "https://github.com/BarryCarlyon/LastFMNowPlaying/issues"
+  },
   "engines": {
-    "node": ">=14.16"
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "dependencies": {
-    "got": "^11.8.2"
+    "node-fetch": "^3.2.10"
   }
 }

@@ -2,7 +2,7 @@
 
 const EventEmitter = require('events').EventEmitter;
 const util = require('util');
-const got = require('got');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 exports.LastFMNowPlaying = LastFMNowPlaying;
 
@@ -20,21 +20,24 @@ function LastFMNowPlaying(config) {
     var self = this;
 
     LastFMNowPlaying.tock = function() {
-        got({
-            url: 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks'
+        fetch(
+            'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks'
                 + '&user=' + LastFMNowPlaying.user
                 + '&api_key=' + LastFMNowPlaying.api_key
                 + '&format=json'
                 + '&limit=1',
-            method: 'GET',
-            headers: {
-                'User-Agent': LastFMNowPlaying.user_agent
-            },
-            responseType: 'json',
-            timeout: LastFMNowPlaying.poll_time
-        })
+            {
+                method: 'GET',
+                headers: {
+                    'User-Agent': LastFMNowPlaying.user_agent
+                },
+                responseType: 'json',
+                timeout: LastFMNowPlaying.poll_time
+            }
+        )
+        .then(r => r.json().then(data => ({ status: r.status, body: data })))
         .then(resp => {
-            if (resp.statusCode == 200) {
+            if (resp.status == 200) {
                 self.emit('always', resp.body);
 
                 try {
@@ -70,6 +73,7 @@ function LastFMNowPlaying(config) {
             }
         })
         .catch(err => {
+            // usually got here fro ma JSON parse error
             self.emit('error', err);
         });
     }
