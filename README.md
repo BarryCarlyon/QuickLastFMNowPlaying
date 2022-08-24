@@ -11,9 +11,9 @@ Uses [node-fetch](https://github.com/node-fetch/node-fetch) to make the request.
 ## Example usage:
 
 ```js
-var lfmnp = require('LastFMNowPlaying');
+var lfmnp = require('QuickLastFMNowPlaying');
 
-var c = new lfmnp.LastFMNowPlaying({
+var c = new lfmnp.QuickLastFMNowPlaying({
     api_key: some_apikey,
     user: some_lastFM_username
 });
@@ -50,3 +50,4 @@ c.on('error', function(e) {
 v1.1.0
 
 Swapped from Got to Node Fetch
+And a Rename to QuickLastFMNowPlaying

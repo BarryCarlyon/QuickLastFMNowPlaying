@@ -1,5 +1,5 @@
 {
-  "name": "lastfmnowplaying",
+  "name": "quicklastfmnowplaying",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
@@ -14,11 +14,11 @@
   "license": "WTFPL",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BarryCarlyon/LastFMNowPlaying.git"
+    "url": "https://github.com/BarryCarlyon/QuickLastFMNowPlaying.git"
   },
-  "homepage": "https://github.com/BarryCarlyon/LastFMNowPlaying",
+  "homepage": "https://github.com/BarryCarlyon/QuickLastFMNowPlaying",
   "bugs": {
-    "url": "https://github.com/BarryCarlyon/LastFMNowPlaying/issues"
+    "url": "https://github.com/BarryCarlyon/QuickLastFMNowPlaying/issues"
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
